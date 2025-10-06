@@ -48,7 +48,7 @@ public class HomeController : Controller
             Id = 1,
             FirstName = "Meet",
             LastName = "Moradiya",
-            Email = "23amticcs037@gmail.com",
+            Email = "23amtics037@gmail.com",
             Department = "Computer Science Engineering",
             RollNumber = 037
         };
