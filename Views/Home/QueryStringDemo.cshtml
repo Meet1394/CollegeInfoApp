@@ -1,0 +1,96 @@
+@* Views/Home/QueryStringDemo.cshtml *@
+@{
+    ViewData["Title"] = "Query String Demo";
+}
+
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header bg-warning text-dark">
+            <h2><i class="bi bi-link-45deg"></i> Query String Demonstration</h2>
+        </div>
+        <div class="card-body">
+            <div class="alert alert-info">
+                <h5><i class="bi bi-info-circle"></i> Current Query String Data:</h5>
+                <div class="row">
+                    <div class="col-md-4">
+                        <strong>Student Name:</strong>
+                        <p class="lead">@ViewBag.StudentName</p>
+                    </div>
+                    <div class="col-md-4">
+                        <strong>Department:</strong>
+                        <p class="lead">@ViewBag.StudentDepartment</p>
+                    </div>
+                    <div class="col-md-4">
+                        <strong>Roll Number:</strong>
+                        <p class="lead">@ViewBag.RollNumber</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-3">
+                <div class="card-header bg-primary text-white">
+                    <h5>Try Different Query Strings</h5>
+                </div>
+                <div class="card-body">
+                    <p>Click the buttons below to pass different data through query strings:</p>
+                    
+                    <div class="d-grid gap-2">
+                        <a href="/Home/QueryStringDemo?name=Amit%20Sharma&department=Computer%20Engineering&rollNumber=2021001" 
+                           class="btn btn-outline-primary">
+                            <i class="bi bi-person"></i> Student 1: Amit Sharma (CSE)
+                        </a>
+                        
+                        <a href="/Home/QueryStringDemo?name=Priya%20Patel&department=Mechanical%20Engineering&rollNumber=2021045" 
+                           class="btn btn-outline-success">
+                            <i class="bi bi-person"></i> Student 2: Priya Patel (Mechanical)
+                        </a>
+                        
+                        <a href="/Home/QueryStringDemo?name=Rahul%20Kumar&department=Electrical%20Engineering&rollNumber=2021078" 
+                           class="btn btn-outline-info">
+                            <i class="bi bi-person"></i> Student 3: Rahul Kumar (Electrical)
+                        </a>
+
+                        <a asp-action="QueryStringDemo" asp-route-name="Custom Student" asp-route-department="IT" asp-route-rollNumber="2021999" 
+                           class="btn btn-outline-danger">
+                            <i class="bi bi-person"></i> Student 4: Custom Student (IT)
+                        </a>
+                    </div>
+
+                    <hr class="my-4">
+
+                    <h6>Custom Query String:</h6>
+                    <form method="get" asp-action="QueryStringDemo">
+                        <div class="row">
+                            <div class="col-md-4 mb-2">
+                                <input type="text" class="form-control" name="name" placeholder="Enter Name" required>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <input type="text" class="form-control" name="department" placeholder="Enter Department" required>
+                            </div>
+                            <div class="col-md-3 mb-2">
+                                <input type="number" class="form-control" name="rollNumber" placeholder="Roll No" required>
+                            </div>
+                            <div class="col-md-1 mb-2">
+                                <button type="submit" class="btn btn-warning w-100">Go</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="alert alert-warning">
+                <h5><i class="bi bi-info-circle"></i> About Query Strings:</h5>
+                <p>Query strings pass data through the URL as key-value pairs. Data is visible in the browser address bar.</p>
+                <p><strong>Format:</strong> /Controller/Action?key1=value1&key2=value2&key3=value3</p>
+                <p><strong>Use Case:</strong> Passing search parameters, filters, pagination, shareable links.</p>
+                <p><strong>Note:</strong> Don't use for sensitive data as it's visible in the URL!</p>
+            </div>
+
+            <div class="text-center mt-3">
+                <a asp-action="Index" class="btn btn-secondary">
+                    <i class="bi bi-house"></i> Back to Home
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

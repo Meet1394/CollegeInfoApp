@@ -1,0 +1,65 @@
+@* Views/Home/Welcome.cshtml *@
+@{
+    ViewData["Title"] = "Welcome";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white text-center">
+            <h1 class="display-3"><i class="bi bi-mortarboard"></i> Welcome to Our College</h1>
+        </div>
+        <div class="card-body">
+            <div class="text-center mb-4">
+                <img src="https://via.placeholder.com/800x300/007bff/ffffff?text=Engineering+College" alt="College Banner" class="img-fluid rounded" />
+            </div>
+            
+            <h3 class="text-center mb-4">About Our Institution</h3>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="bi bi-trophy text-warning"></i> Excellence in Education</h5>
+                            <p class="card-text">With over 25 years of academic excellence, we provide world-class engineering education.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="bi bi-people text-success"></i> Expert Faculty</h5>
+                            <p class="card-text">Our faculty members are highly qualified with extensive industry and research experience.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="bi bi-building text-info"></i> Modern Infrastructure</h5>
+                            <p class="card-text">State-of-the-art laboratories, libraries, and facilities for comprehensive learning.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="bi bi-briefcase text-danger"></i> 95% Placement Rate</h5>
+                            <p class="card-text">Strong industry connections ensuring excellent career opportunities for our graduates.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert alert-success mt-4" role="alert">
+                <h4 class="alert-heading">Admissions Open!</h4>
+                <p>We are now accepting applications for the academic year 2025-26. Join us to shape your future!</p>
+            </div>
+
+            <div class="text-center mt-4">
+                <a asp-controller="Home" asp-action="Index" class="btn btn-primary btn-lg">
+                    <i class="bi bi-arrow-left-circle"></i> Back to Home
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

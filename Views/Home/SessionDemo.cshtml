@@ -1,0 +1,100 @@
+@* Views/Home/SessionDemo.cshtml *@
+@{
+    ViewData["Title"] = "Session Demo";
+}
+
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header bg-success text-white">
+            <h2><i class="bi bi-hourglass-split"></i> Session Demonstration</h2>
+        </div>
+        <div class="card-body">
+            @if (ViewBag.Message != null)
+            {
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Success!</strong> @ViewBag.Message
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            }
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-header bg-primary text-white">
+                            <h5>Save Student Data in Session</h5>
+                        </div>
+                        <div class="card-body">
+                            <form asp-action="SaveSession" method="post">
+                                <div class="mb-3">
+                                    <label for="studentName" class="form-label">Student Name</label>
+                                    <input type="text" class="form-control" id="studentName" name="studentName" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="studentDepartment" class="form-label">Department</label>
+                                    <select class="form-select" id="studentDepartment" name="studentDepartment" required>
+                                        <option value="">Select Department</option>
+                                        <option value="Computer Engineering">Computer Engineering</option>
+                                        <option value="Mechanical Engineering">Mechanical Engineering</option>
+                                        <option value="Civil Engineering">Civil Engineering</option>
+                                        <option value="Electrical Engineering">Electrical Engineering</option>
+                                        <option value="Electronics Engineering">Electronics Engineering</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="rollNumber" class="form-label">Roll Number</label>
+                                    <input type="number" class="form-control" id="rollNumber" name="rollNumber" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">
+                                    <i class="bi bi-save"></i> Save to Session
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-header bg-info text-white">
+                            <h5>Retrieved Session Data</h5>
+                        </div>
+                        <div class="card-body">
+                            @if (ViewBag.StudentName != null)
+                            {
+                                <div class="alert alert-light">
+                                    <p><strong>Student Name:</strong> @ViewBag.StudentName</p>
+                                    <p><strong>Department:</strong> @ViewBag.StudentDepartment</p>
+                                    <p><strong>Roll Number:</strong> @ViewBag.RollNumber</p>
+                                </div>
+                            }
+                            else
+                            {
+                                <p class="text-muted">No session data available. Save data first or click Read Session.</p>
+                            }
+                            
+                            <div class="d-grid gap-2">
+                                <a asp-action="ReadSession" class="btn btn-info">
+                                    <i class="bi bi-eye"></i> Read Session
+                                </a>
+                                <a asp-action="ClearSession" class="btn btn-danger">
+                                    <i class="bi bi-trash"></i> Clear Session
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert alert-warning mt-3">
+                <h5><i class="bi bi-info-circle"></i> About Sessions:</h5>
+                <p>Sessions store data on the server side and use a session ID cookie to identify users. Data is lost when the session expires or is cleared.</p>
+                <p><strong>Use Case:</strong> Temporary user data, shopping cart, authentication state.</p>
+            </div>
+
+            <div class="text-center mt-3">
+                <a asp-action="Index" class="btn btn-secondary">
+                    <i class="bi bi-house"></i> Back to Home
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

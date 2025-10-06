@@ -1,0 +1,180 @@
+@* Views/Home/MyView.cshtml *@
+@{
+    ViewData["Title"] = "College Information";
+}
+
+<div class="container mt-4">
+    <!-- Greeting Section with Time-based Image -->
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body text-center">
+            <img src="~/images/@ViewBag.ImageName" alt="Time of day" class="img-fluid rounded mb-3" style="max-height: 300px; width: 100%; object-fit: cover;" />
+            <h1 class="display-4">@ViewBag.Greeting!</h1>
+            <p class="lead">Welcome to Engineering College Portal</p>
+            <p class="text-muted">Current Time: @ViewBag.CurrentTime</p>
+        </div>
+    </div>
+
+    <!-- Extension Method Demo -->
+    <div class="alert alert-info">
+        <strong>Extension Method Demo:</strong> Student Full Name: @ViewBag.StudentFullName
+    </div>
+
+    <!-- College News Section (Async Method Demo) -->
+    <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+            <h4><i class="bi bi-newspaper"></i> Latest College News</h4>
+        </div>
+        <div class="card-body">
+            <ul class="list-group">
+                @foreach (var newsItem in ViewBag.News)
+                {
+                    <li class="list-group-item">@newsItem</li>
+                }
+            </ul>
+            <p class="text-muted mt-2"><small>News loaded asynchronously</small></p>
+        </div>
+    </div>
+
+    <!-- Navigation Button -->
+    <div class="text-center mb-4">
+        <a asp-controller="Home" asp-action="Welcome" class="btn btn-success btn-lg">
+            <i class="bi bi-arrow-right-circle"></i> Go to Welcome Page
+        </a>
+    </div>
+
+    <!-- Engineering Courses Table -->
+    <div class="card mb-4">
+        <div class="card-header bg-success text-white">
+            <h4><i class="bi bi-book"></i> Engineering Courses Offered</h4>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Course Code</th>
+                            <th>Course Name</th>
+                            <th>Department</th>
+                            <th>Credits</th>
+                            <th>Duration (Years)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>CSE101</td>
+                            <td>Computer Science Engineering</td>
+                            <td>Computer Science</td>
+                            <td>180</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>ECE101</td>
+                            <td>Electronics & Communication Engineering</td>
+                            <td>Electronics</td>
+                            <td>175</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>ME101</td>
+                            <td>Mechanical Engineering</td>
+                            <td>Mechanical</td>
+                            <td>170</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>CE101</td>
+                            <td>Civil Engineering</td>
+                            <td>Civil</td>
+                            <td>168</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>EE101</td>
+                            <td>Electrical Engineering</td>
+                            <td>Electrical</td>
+                            <td>172</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>IT101</td>
+                            <td>Information Technology</td>
+                            <td>IT</td>
+                            <td>180</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>CHE101</td>
+                            <td>Chemical Engineering</td>
+                            <td>Chemical</td>
+                            <td>165</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>AE101</td>
+                            <td>Aeronautical Engineering</td>
+                            <td>Aeronautical</td>
+                            <td>178</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>BT101</td>
+                            <td>Biotechnology Engineering</td>
+                            <td>Biotechnology</td>
+                            <td>160</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>AI101</td>
+                            <td>Artificial Intelligence & ML</td>
+                            <td>AI & Data Science</td>
+                            <td>185</td>
+                            <td>4</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Data Handling Demos Links -->
+    <div class="card">
+        <div class="card-header bg-info text-white">
+            <h4><i class="bi bi-database"></i> Data Handling Demonstrations</h4>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-3 mb-2">
+                    <a asp-action="CookiesDemo" class="btn btn-outline-primary w-100">
+                        <i class="bi bi-cookie"></i> Cookies Demo
+                    </a>
+                </div>
+                <div class="col-md-3 mb-2">
+                    <a asp-action="SessionDemo" class="btn btn-outline-success w-100">
+                        <i class="bi bi-hourglass-split"></i> Session Demo
+                    </a>
+                </div>
+                <div class="col-md-3 mb-2">
+                    <a asp-action="QueryStringDemo" asp-route-name="John Doe" asp-route-department="Computer Engineering" asp-route-rollNumber="2021001" class="btn btn-outline-warning w-100">
+                        <i class="bi bi-link-45deg"></i> Query String Demo
+                    </a>
+                </div>
+                <div class="col-md-3 mb-2">
+                    <a asp-action="HiddenFieldDemo" class="btn btn-outline-danger w-100">
+                        <i class="bi bi-eye-slash"></i> Hidden Field Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

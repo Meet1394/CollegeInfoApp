@@ -1,0 +1,88 @@
+@* Views/Home/CookiesDemo.cshtml *@
+@{
+    ViewData["Title"] = "Cookies Demo";
+}
+
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h2><i class="bi bi-cookie"></i> Cookies Demonstration</h2>
+        </div>
+        <div class="card-body">
+            @if (ViewBag.Message != null)
+            {
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Success!</strong> @ViewBag.Message
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            }
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-header bg-success text-white">
+                            <h5>Save Student Data in Cookie</h5>
+                        </div>
+                        <div class="card-body">
+                            <form asp-action="SaveCookie" method="post">
+                                <div class="mb-3">
+                                    <label for="studentName" class="form-label">Student Name</label>
+                                    <input type="text" class="form-control" id="studentName" name="studentName" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="studentEmail" class="form-label">Student Email</label>
+                                    <input type="email" class="form-control" id="studentEmail" name="studentEmail" required>
+                                </div>
+                                <button type="submit" class="btn btn-success w-100">
+                                    <i class="bi bi-save"></i> Save to Cookie
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-header bg-info text-white">
+                            <h5>Retrieved Cookie Data</h5>
+                        </div>
+                        <div class="card-body">
+                            @if (ViewBag.StudentName != null)
+                            {
+                                <div class="alert alert-light">
+                                    <p><strong>Student Name:</strong> @ViewBag.StudentName</p>
+                                    <p><strong>Student Email:</strong> @ViewBag.StudentEmail</p>
+                                </div>
+                            }
+                            else
+                            {
+                                <p class="text-muted">No cookie data available. Save data first or click Read Cookie.</p>
+                            }
+                            
+                            <div class="d-grid gap-2">
+                                <a asp-action="ReadCookie" class="btn btn-info">
+                                    <i class="bi bi-eye"></i> Read Cookie
+                                </a>
+                                <a asp-action="DeleteCookie" class="btn btn-danger">
+                                    <i class="bi bi-trash"></i> Delete Cookie
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert alert-warning mt-3">
+                <h5><i class="bi bi-info-circle"></i> About Cookies:</h5>
+                <p>Cookies are small pieces of data stored on the client's browser. They persist across browser sessions until they expire or are deleted.</p>
+                <p><strong>Use Case:</strong> Remember user preferences, login information, shopping cart data.</p>
+            </div>
+
+            <div class="text-center mt-3">
+                <a asp-action="Index" class="btn btn-secondary">
+                    <i class="bi bi-house"></i> Back to Home
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

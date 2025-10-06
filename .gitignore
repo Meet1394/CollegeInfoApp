@@ -1,0 +1,51 @@
+# Visual Studio
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+bin/
+obj/
+
+# Rider
+.idea/
+
+# NuGet
+*.nupkg
+packages/
+.nuget/
+
+# Visual Studio cache files
+*.Cache
+
+# ASP.NET temporary files
+wwwroot/node_modules/
+
+# User secrets
+secrets.json
+
+# Logs
+*.log
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Publish outputs
+publish/
+
+# JetBrains Rider
+.idea/
+
+# Others
+*.db
+*.db-journal
+
+# Allow appsettings to be tracked but ignore development secrets
+appsettings.Development.json
+
+# ASP.NET scaffolding
+ScaffoldingReadMe.txt
