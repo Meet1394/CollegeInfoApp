@@ -46,11 +46,11 @@ public class HomeController : Controller
         var sampleStudent = new Student
         {
             Id = 1,
-            FirstName = "Raj",
-            LastName = "Patel",
-            Email = "raj.patel@college.edu",
-            Department = "Computer Engineering",
-            RollNumber = 2021001
+            FirstName = "Meet",
+            LastName = "Moradiya",
+            Email = "23amticcs037@gmail.com",
+            Department = "Computer Science Engineering",
+            RollNumber = 037
         };
         ViewBag.StudentFullName = sampleStudent.GetFullName();
 
